@@ -13,9 +13,6 @@ class UrlForm extends Component {
 
   handleNameChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state.urlToShorten)
-    console.log(this.state.title)
-
   }
 
   handleSubmit = e => {
