@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { addUrl } from '../../fetchPost';
 
 class UrlForm extends Component {
   constructor(props) {
@@ -12,10 +13,18 @@ class UrlForm extends Component {
 
   handleNameChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state.urlToShorten)
+    console.log(this.state.title)
+
   }
 
   handleSubmit = e => {
     e.preventDefault();
+    const url = {
+      title: this.state.title,
+      long_url: this.state.urlToShorten
+    }
+    this.props.updateUrls(url)
     this.clearInputs();
   }
 
@@ -37,8 +46,8 @@ class UrlForm extends Component {
         <input
           type='text'
           placeholder='URL to Shorten...'
-          name='title'
-          value={this.state.title}
+          name='urlToShorten'
+          value={this.state.urlToShorten}
           onChange={e => this.handleNameChange(e)}
         />
 

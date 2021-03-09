@@ -27,7 +27,7 @@ export class App extends Component {
       .then(data => this.setState({ urls: data.urls }));
   }
 
-  makeReservation = (url) => {
+  updateUrls = (url) => {
   addUrl(url)
     .then(response => {
       if (response.ok) {
@@ -42,7 +42,7 @@ export class App extends Component {
       <main className="App">
         <header>
           <h1>URL Shortener</h1>
-          <UrlForm />
+          <UrlForm updateUrls={url => this.updateUrls(url)}/>
         </header>
         {this.state.urls.length &&
         <UrlContainer urls={this.state.urls}/>}
