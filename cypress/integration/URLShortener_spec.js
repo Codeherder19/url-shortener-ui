@@ -23,7 +23,10 @@
     })
 
     it('user should be able to view input fields for title and url to shorten', () => {
-
+      cy
+      .get('input:first').should('have.attr', 'placeholder', 'Title...')
+      cy
+      .get('input:last').should('have.attr', 'placeholder', 'URL to Shorten...')
     })
     //
     // it('user should be able to view page title', () => {
