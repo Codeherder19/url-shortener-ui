@@ -1,9 +1,4 @@
-// Write Cypress tests for the following user flows (don't forget to stub your network requests):
-//
-// When a user visits the page, they can view the Form with the proper inputs
-// When a user fills out the form, the information is reflected in the input fields
-
-    describe('URL Shortener', () => {
+  describe('URL Shortener', () => {
     const baseUrl = 'http://localhost:3000';
 
     beforeEach(() => {
@@ -28,16 +23,13 @@
       cy
       .get('input:last').should('have.attr', 'placeholder', 'URL to Shorten...')
     })
-    //
-    // it('user should be able to view page title', () => {
-    //
-    // })
-    //
-    // it('user should be able to view page title', () => {
-    //
-    // })
-    //
-    // it('user should be able to view page title', () => {
-    //
-  // })
+
+    it('when a user fills out the form, the information is reflected in the input fields', () => {
+      cy
+      .get('input:first').type('Hero Wars')
+      .should('have.value', 'Hero Wars')
+      cy
+      .get('input:last').type('https://apps.facebook.com/mobaheroes/?nx_source=group_posting-.pt-gift.gt-sc.cq-4.-&gift_id=3621be529936d62ac8e3b6c10465695b&__cft__[0]=AZUbyLRZyByqHMYT9SpZAfazfmcFwr9Nh19kgltY4e2sXP_feqxBjZZaC4UcEFLQ0Ql-VXNOKZg7ZtEEyAXYr0jb3u_LoArfNU154MsYQayZaxexoCzEOXjee75UqS0QR3YNjDuqFzynVLh0FzhyHQOT6WbgjafR8M5VJZp9hFeDtPRZwfRFNFwdyWtTT1ZoT1U&__tn__=H-R')
+      .should('have.value', 'https://apps.facebook.com/mobaheroes/?nx_source=group_posting-.pt-gift.gt-sc.cq-4.-&gift_id=3621be529936d62ac8e3b6c10465695b&__cft__[0]=AZUbyLRZyByqHMYT9SpZAfazfmcFwr9Nh19kgltY4e2sXP_feqxBjZZaC4UcEFLQ0Ql-VXNOKZg7ZtEEyAXYr0jb3u_LoArfNU154MsYQayZaxexoCzEOXjee75UqS0QR3YNjDuqFzynVLh0FzhyHQOT6WbgjafR8M5VJZp9hFeDtPRZwfRFNFwdyWtTT1ZoT1U&__tn__=H-R')
+    })
   })
