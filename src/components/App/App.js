@@ -13,6 +13,17 @@ export class App extends Component {
   }
 
   componentDidMount() {
+    this.fetchUrls()
+  }
+
+  fetchUrls = () => {
+    getUrls()
+    .then(response => {
+      if (response.ok) {
+          return response.json()
+        }
+      })
+      .then(data => this.setState({ urls: data.urls }));
   }
 
   render() {
@@ -22,8 +33,8 @@ export class App extends Component {
           <h1>URL Shortener</h1>
           <UrlForm />
         </header>
-
-        <UrlContainer urls={this.state.urls}/>
+        {this.state.urls.length &&
+        <UrlContainer urls={this.state.urls}/>}
       </main>
     );
   }
