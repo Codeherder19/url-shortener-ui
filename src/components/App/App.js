@@ -34,7 +34,7 @@ export class App extends Component {
         return response.json();
       }
     })
-    .then(() => this.setState({ urls: [...this.state.urls, url] }));
+    .then((newUrl) => this.setState({ urls: [...this.state.urls, newUrl] }));
 }
 
   render() {
