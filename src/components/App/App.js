@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { getUrls } from '../../apiCalls';
+import { addUrl } from '../../fetchPost';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -25,6 +26,16 @@ export class App extends Component {
       })
       .then(data => this.setState({ urls: data.urls }));
   }
+
+  makeReservation = (url) => {
+  addUrl(url)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then(() => this.setState({ urls: [...this.state.urls, url] }));
+}
 
   render() {
     return (
